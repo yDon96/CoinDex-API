@@ -5,7 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "dev": "TZ='UTC' NODE_ENV=dev nodemon server.ts",
-    "production": "TZ='UTC' NODE_ENV=production node server.ts",
+    "build": "npx tsc",
+    "production": "TZ='UTC' NODE_ENV=production node ./dist/server.js",
     "lint": "eslint **/*.ts",
     "format": "eslint **/*.ts --fix",
     "pre-commit": "npx lint-staged",

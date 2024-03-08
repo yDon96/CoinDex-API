@@ -11,8 +11,9 @@
 1. [Introduction](#introduction)
 2. [Motivation](#motivation)
 3. [Quick start](#quick-start)
-4. [Author](#author)
-5. [License](#license)
+4. [Docker](#docker)
+5. [Author](#author)
+6. [License](#license)
 ---
 ## Introduction
 
@@ -42,7 +43,7 @@ npm install
 
 ### 2. Set env file
 
-Copy the example .env file, and set the needed values:
+Copy the example [.env file](./.env), and set the needed values:
 ```bash
 cp .env .env.dev
 ```
@@ -54,6 +55,25 @@ cp .env .env.dev
 ```bash
 npm run dev
 ```
+
+---
+## Docker
+
+### 1. Create the image
+Open a terminal or command prompt, navigate to the directory 
+containing your Dockerfile, and run the following command:
+```bash
+docker build -t <image-name> .    
+```
+
+### 2. Start a new container
+
+Once the image is built, you can run it using the following command:
+```bash
+docker run -it -p 3000:3000 -e [env-var-list] <image-name>       
+```
+
+Use _**'-e'**_ to specify all the required environment variable. (See [here](./.env))
 
 ---
 ## Author
