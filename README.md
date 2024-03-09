@@ -11,9 +11,10 @@
 1. [Introduction](#introduction)
 2. [Motivation](#motivation)
 3. [Quick start](#quick-start)
-4. [Docker](#docker)
-5. [Author](#author)
-6. [License](#license)
+4. [Documentation](#documentation)
+5. [Docker](#docker)
+6. [Author](#author)
+7. [License](#license)
 ---
 ## Introduction
 
@@ -55,6 +56,20 @@ cp .env .env.dev
 ```bash
 npm run dev
 ```
+
+---
+## Documentation
+
+I utilize Swagger for documenting the API endpoints, 
+providing a clear and interactive way for developers to understand 
+the functionalities and data models of our system.
+
+Once your project is running, open a web browser and navigate to the Swagger UI URL. This URL is:
+
+```
+https://<domain>/docs
+```
+
 
 ---
 ## Docker
