@@ -10,7 +10,7 @@
     "lint": "eslint **/*.ts",
     "format": "eslint **/*.ts --fix",
     "pre-commit": "npx lint-staged",
-    "test": "TZ='UTC' NODE_ENV=test node server.ts"
+    "test": "mocha -r ts-node/esm 'tests/**/*.ts'"
   },
   "keywords": [],
   "author": "Youssef Donadeo",
@@ -25,11 +25,12 @@
     "@faker-js/faker": "^8.4.1",
     "@types/chai": "^4.3.12",
     "@types/express": "^4.17.21",
+    "@types/mocha": "^10.0.6",
     "@types/node": "^20.11.24",
     "@types/sinon": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
-    "chai": "^5.1.0",
+    "chai": "^4.4.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
