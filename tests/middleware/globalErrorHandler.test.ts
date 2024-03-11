@@ -2,7 +2,6 @@ import {globalErrorHandler} from "../../middleware/globalErrorHandler";
 import sinon, {SinonSandbox} from "sinon";
 import {expect} from "chai";
 import BadRequestError from "../../models/errors/BadRequestError";
-import {ANetworkError} from "../../models/errors/ANetworkError";
 
 //1. unit under test
 // 2. scenario
