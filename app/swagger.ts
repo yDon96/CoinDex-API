@@ -22,6 +22,7 @@ const options = {
 
 const specs = swaggerJsdoc(options)
 
+// eslint-disable-next-line
 const swagger = (app: any) => {
   app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs))
 }

@@ -23,6 +23,7 @@ const globalErrorHandler: ErrorRequestHandler = (
     err: ANetworkError,
     req: Request,
     res: Response,
+    // eslint-disable-next-line
     next: NextFunction,
 ) => {
   // Log the error
