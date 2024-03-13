@@ -37,7 +37,7 @@ describe('Test Global Error Handler', () => {
             expect(res.status.calledOnceWithExactly(500)).to.be.true;
             expect(res.json.calledOnceWithExactly({
                 message: 'Internal Server Error',
-                error: error
+                code: 500
             })).to.be.true;
 
             expect(next.notCalled).to.be.true;
@@ -57,7 +57,7 @@ describe('Test Global Error Handler', () => {
             expect(res.status.calledOnceWithExactly(500)).to.be.true;
             expect(res.json.calledOnceWithExactly({
                 message: message,
-                error: error
+                code: 500
             })).to.be.true;
 
             expect(next.notCalled).to.be.true;
@@ -75,7 +75,7 @@ describe('Test Global Error Handler', () => {
             expect(res.status.calledOnceWithExactly(400)).to.be.true;
             expect(res.json.calledOnceWithExactly({
                 message: "Bad request",
-                error: error
+                code: 400
             })).to.be.true;
 
             expect(next.notCalled).to.be.true;
