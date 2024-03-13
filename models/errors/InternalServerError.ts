@@ -1,5 +1,19 @@
 import {ANetworkError} from "./ANetworkError";
 
+/**
+ * @swagger
+ * components:
+ *   #-------------------------------
+ *   # Reusable schemas (data models)
+ *   #-------------------------------
+ *   responses:
+ *     InternalServerError:
+ *       description: The server encounters an unexpected condition that prevents it from fulfilling the client's request.
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Error'
+ */
 export default class InternalServerError extends ANetworkError {
     private static readonly _statusCode = 500;
     private readonly _code: number;
