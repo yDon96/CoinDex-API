@@ -1,12 +1,16 @@
 import dotenv from 'dotenv';
-const app = require('./app');
+import {connectDB} from "./config/db";
+import result from './app';
 
-dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+dotenv.config({path: `.env.${process.env.NODE_ENV}`});
 
 const port = process.env.PORT || '3000';
+const dbUri = process.env.MONGO_URI || '';
 
-console.log("Server listening on port:", port);
+connectDB(dbUri)
 
-app.listen(port);
+result.listen(port, () => {
+    console.log("Server listening on port:", port);
+});
 
-module.exports = app;
+export {result};
