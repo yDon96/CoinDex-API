@@ -3,6 +3,7 @@ import sinon, {SinonSandbox} from "sinon";
 import {expect} from "chai";
 import {Coin} from "../../../models/db/coin.model";
 import {findAll, findById} from "../../../app/coins/v1/domain/coins.service";
+import {CoinMapper} from "../../../mappers/CoinMapper";
 
 //1. unit under test
 describe('Coins service', function () {
@@ -64,6 +65,9 @@ describe('Coins service', function () {
                 sandbox.stub(Coin, "findById").returns({
                     exec: sinon.stub().resolves(response)
                 });
+
+                // @ts-ignore
+                sandbox.stub(CoinMapper, "parseToDto").returns(response);
                 const id = faker.database.mongodbObjectId();
                 //Act
                 const result = await findById(id);
@@ -105,14 +109,16 @@ describe('Coins service', function () {
         it('When we request coin with valid id, then the retrieve coin object',
             async () => {
                 //Arrange
-                const response = 'Response Ok'
+                const response = ['Response Ok']
                 // @ts-ignore
                 sandbox.stub(Coin, "find").returns({
                     exec: sinon.stub().resolves(response)
                 });
+                // @ts-ignore
+                sandbox.stub(CoinMapper, "parseToDto").callsFake((val) => val);
                 //Act
                 const result = await findAll();
-                expect(result).to.equal(response);
+                expect(result).to.deep.equal(response);
             });
     });
 

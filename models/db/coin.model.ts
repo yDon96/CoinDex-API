@@ -1,30 +1,10 @@
-import {model, Model, Schema} from 'mongoose';
+import {model, Model, Schema, Types} from 'mongoose';
 
-/**
- * @swagger
- * components:
- *   #-------------------------------
- *   # Reusable schemas (data models)
- *   #-------------------------------
- *   schemas:
- *     Coin:
- *       type: object
- *       properties:
- *          id:
- *             type: integer
- *             format: int64
- *             description: The ID of the resource.
- *          name:
- *             type: string
- *             description: The name of the resource.
- *          description:
- *             type: string
- *             description: The description of the resource.
- */
 export interface ICoinDocument extends Document {
+    _id: Types.ObjectId
     name: String;
     type: String;
-    year: String;
+    year: Number;
     quantity: Number;
     createdAt: Date;
     updatedAt: Date;
@@ -42,7 +22,7 @@ const coinSchema = new Schema(
             unique: true,
         },
         year: {
-            type: String,
+            type: Number,
             required: true,
         },
         quantity: {
